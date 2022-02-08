@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.serviceshopping.models.Product;
 
-@FeignClient(name = "product-service")
+@FeignClient(name = "product-service", fallback = ProductHystrixImpl.class)
 public interface ProductClientI {
 	
 	@GetMapping(value = "/products/{id}")
