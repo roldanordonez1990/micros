@@ -6,7 +6,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/roldanordonez1990/Microservices-Spring-Cloud-Server.git
+          uri: https://github.com/roldanordonez1990/micros.git
           searchPaths: Config-data
           username: ${GIT_USER}
           password: ${GIT_PASSWORD}
