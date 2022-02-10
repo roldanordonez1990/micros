@@ -31,23 +31,23 @@ public class CustomerController {
 	
 	 @GetMapping(value = "/all")
 	    public ResponseEntity<List<Customer>> listAllCustomers(@RequestParam(name = "regionId" , required = false) Long regionId ) {
-	        List<Customer> customerss =  new ArrayList<>();
+	        List<Customer> customers =  new ArrayList<>();
 	        if (null ==  regionId) {
-	            customerss = customerService.findCustomerAll();
-	            if (customerss.isEmpty()) {
+	            customers = customerService.findCustomerAll();
+	            if (customers.isEmpty()) {
 	                return ResponseEntity.noContent().build();
 	            }
 	        }else{
 	            Region Region= new Region();
 	            Region.setId(regionId);
-	            customerss = customerService.findCustomersByRegion(Region);
-	            if ( null == customerss ) {
+	            customers = customerService.findCustomersByRegion(Region);
+	            if ( null == customers ) {
 	                //log.error("Customers with Region id {} not found.", regionId);
 	                return  ResponseEntity.notFound().build();
 	            }
 	        }
 
-	        return  ResponseEntity.ok(customerss);
+	        return  ResponseEntity.ok(customers);
 	    }
 
 	    // -------------------Retrieve Single Customer------------------------------------------
